@@ -44,6 +44,28 @@ export class LoginComponent {
     }
   }
 
+  async register() {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+
+    this.errorMessage = '';
+    this.isLoading = true;
+
+    try {
+      const { email, password } = this.form.getRawValue();
+      if (!email || !password) {
+        return;
+      }
+      await this.authService.registerWithEmail(email, password);
+    } catch (error) {
+      this.errorMessage = 'Registrazione non riuscita. Verifica i dati.';
+    } finally {
+      this.isLoading = false;
+    }
+  }
+
   async signInWithGoogle() {
     this.errorMessage = '';
     this.isLoading = true;

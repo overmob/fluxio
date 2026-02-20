@@ -1,0 +1,11 @@
+version: v1
+metadata:
+  adapterPackageName: custom
+  adapterVersion: 1.0.0
+  framework: angular
+runConfig:
+  runCommand: node dist/fluxio/server/server.mjs
+outputFiles:
+  serverApp:
+    include:
+      - dist/fluxio

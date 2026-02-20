@@ -9,26 +9,35 @@
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
         <input matInput type="email" formControlName="email" />
-        <mat-error *ngIf="form.get('email')?.hasError('required')">
-          Inserisci un'email valida.
-        </mat-error>
+        @if (form.get('email')?.hasError('required')) {
+          <mat-error>
+            Inserisci un'email valida.
+          </mat-error>
+        }
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
         <input matInput type="password" formControlName="password" />
-        <mat-error *ngIf="form.get('password')?.hasError('required')">
-          Inserisci una password valida.
-        </mat-error>
+        @if (form.get('password')?.hasError('required')) {
+          <mat-error>
+            Inserisci una password valida.
+          </mat-error>
+        }
       </mat-form-field>
 
       <button mat-button type="button" class="link-button">
         Hai dimenticato la password?
       </button>
 
-      <button mat-flat-button color="primary" type="submit" [disabled]="isLoading">
-        Accedi
-      </button>
+      <div class="primary-actions">
+        <button mat-flat-button color="primary" type="submit" [disabled]="isLoading">
+          Accedi
+        </button>
+        <button mat-stroked-button type="button" (click)="register()" [disabled]="isLoading">
+          Registrati
+        </button>
+      </div>
     </form>
 
     <mat-divider></mat-divider>
@@ -45,7 +54,9 @@
       </button>
     </div>
 
-    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
-    <p class="footer-link">Non hai un account? Registrati</p>
+    @if (errorMessage) {
+      <p class="error">{{ errorMessage }}</p>
+    }
+    <p class="footer-link">Non hai un account? Usa “Registrati”.</p>
   </mat-card>
 </div>

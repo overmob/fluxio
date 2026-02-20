@@ -31,6 +31,12 @@
   gap: 16px;
 }
 
+.primary-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .link-button {
   align-self: flex-start;
   padding: 0;

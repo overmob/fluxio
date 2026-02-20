@@ -5,6 +5,7 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
   User,
+  createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -31,6 +32,10 @@ export class AuthService {
 
   signInWithEmail(email: string, password: string) {
     return signInWithEmailAndPassword(this.auth, email, password);
+  }
+
+  registerWithEmail(email: string, password: string) {
+    return createUserWithEmailAndPassword(this.auth, email, password);
   }
 
   signInWithGoogle() {
