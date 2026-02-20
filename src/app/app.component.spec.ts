@@ -1,10 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { AppModule } from './app.module';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [AppModule],
     }).compileComponents();
   });
 
@@ -20,10 +21,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('fluxio');
   });
 
-  it('should render title', () => {
+  it('should render toolbar title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, fluxio');
+    expect(compiled.querySelector('mat-toolbar span')?.textContent).toContain('Fluxio');
   });
 });

@@ -1,0 +1,35 @@
+[debug] [2026-02-20T12:24:15.498Z] ----------------------------------------------------------------------
+[debug] [2026-02-20T12:24:15.500Z] Command:       /usr/local/Cellar/node/23.11.0/bin/node /usr/local/bin/firebase apps:create web fluxio-web --project fluxio-om-dev --json
+[debug] [2026-02-20T12:24:15.501Z] CLI Version:   15.6.0
+[debug] [2026-02-20T12:24:15.501Z] Platform:      darwin
+[debug] [2026-02-20T12:24:15.501Z] Node Version:  v23.11.0
+[debug] [2026-02-20T12:24:15.502Z] Time:          Fri Feb 20 2026 13:24:15 GMT+0100 (Central European Standard Time)
+[debug] [2026-02-20T12:24:15.503Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-02-20T12:24:15.528Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-20T12:24:15.529Z] > authorizing via signed-in user (abenigni@overmob.com)
+[info] Create your WEB app in project fluxio-om-dev:
+[debug] [2026-02-20T12:24:15.533Z] Checked if tokens are valid: true, expires at: 1771593742042
+[debug] [2026-02-20T12:24:15.534Z] Checked if tokens are valid: true, expires at: 1771593742042
+[debug] [2026-02-20T12:24:15.535Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1beta1/projects/fluxio-om-dev/webApps [none]
+[debug] [2026-02-20T12:24:15.535Z] >>> [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/fluxio-om-dev/webApps {"displayName":"fluxio-web"}
+[debug] [2026-02-20T12:24:15.569Z] *** [apiv2] error from fetch(https://firebase.googleapis.com/v1beta1/projects/fluxio-om-dev/webApps, {"headers":{},"method":"POST","signal":{"reason":""},"body":"{\"displayName\":\"fluxio-web\"}"}): FetchError: request to https://firebase.googleapis.com/v1beta1/projects/fluxio-om-dev/webApps failed, reason: getaddrinfo ENOTFOUND firebase.googleapis.com
+[debug] [2026-02-20T12:24:15.570Z] Failed to make request to https://firebase.googleapis.com/v1beta1/projects/fluxio-om-dev/webApps
+[debug] [2026-02-20T12:24:15.575Z] FirebaseError: Failed to make request to https://firebase.googleapis.com/v1beta1/projects/fluxio-om-dev/webApps
+    at RetryOperation._fn (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:279:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[error] 
+[error] Error: Failed to create Web app for project fluxio-om-dev. See firebase-debug.log for more info.
+[debug] [2026-02-20T12:24:15.845Z] Error: EPERM: operation not permitted, open '/Users/burt/.config/configstore/firebase-tools.json.2330946412'
+    at Object.openSync (node:fs:563:18)
+    at Function.writeFileSync [as sync] (/usr/local/lib/node_modules/firebase-tools/node_modules/write-file-atomic/index.js:205:13)
+    at set all (/usr/local/lib/node_modules/firebase-tools/node_modules/configstore/index.js:61:20)
+    at Configstore.delete (/usr/local/lib/node_modules/firebase-tools/node_modules/configstore/index.js:101:12)
+    at process.<anonymous> (/usr/local/lib/node_modules/firebase-tools/lib/bin/cli.js:65:45)
+    at process.emit (node:events:519:35)
+    at process.exit (node:internal/process/per_thread:236:15)
+    at Timeout._onTimeout (/usr/local/lib/node_modules/firebase-tools/lib/errorOut.js:20:17)
+    at listOnTimeout (node:internal/timers:608:17)
+    at process.processTimers (node:internal/timers:543:7)
+[error] 
+[error] Error: An unexpected error has occurred.

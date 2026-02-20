@@ -1,0 +1,51 @@
+<div class="login-page">
+  <mat-card class="login-card">
+    <div class="login-header">
+      <h1>Accedi al tuo account</h1>
+      <p>Inserisci le tue credenziali per continuare.</p>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="login-form">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" />
+        <mat-error *ngIf="form.get('email')?.hasError('required')">
+          Inserisci un'email valida.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" />
+        <mat-error *ngIf="form.get('password')?.hasError('required')">
+          Inserisci una password valida.
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-button type="button" class="link-button">
+        Hai dimenticato la password?
+      </button>
+
+      <button mat-flat-button color="primary" type="submit" [disabled]="isLoading">
+        Accedi
+      </button>
+    </form>
+
+    <mat-divider></mat-divider>
+
+    <div class="social-login">
+      <button mat-stroked-button type="button" (click)="signInWithGoogle()" [disabled]="isLoading">
+        Continua con Google
+      </button>
+      <button mat-stroked-button type="button" disabled>
+        Continua con Microsoft
+      </button>
+      <button mat-stroked-button type="button" disabled>
+        Continua con Apple
+      </button>
+    </div>
+
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+    <p class="footer-link">Non hai un account? Registrati</p>
+  </mat-card>
+</div>
